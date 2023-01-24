@@ -1,0 +1,7 @@
+{
+  "token": "Your bot token",
+  "devid": "Your discord ID",
+  "clearlog": "Your clear log channel",
+  "DatabaseURL": "Your MongoDB connection URL",
+  "suggestion": "Suggestion channel ID"
+}
