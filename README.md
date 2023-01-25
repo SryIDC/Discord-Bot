@@ -1,4 +1,6 @@
 # Discord-Bot
+A Multi-purpose bot for discord with Ticket-System and Moderation system.
+
 This discord bot has been built for PiHosting a free hosting with US and Germany servers.
 
 PiHosting Website: https://client.pihosting.cloud/ 
