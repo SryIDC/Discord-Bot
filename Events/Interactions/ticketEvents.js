@@ -100,15 +100,15 @@ module.exports = {
                       .setEmoji("<:4402yesicon:1015234867530829834>")
                       .setStyle(ButtonStyle.Success),
                     new ButtonBuilder()
-                      .setCustomId("closereq")
-                      .setLabel("Close Request")
-                      .setEmoji("⭕")
-                      .setStyle(ButtonStyle.Danger),
-                    new ButtonBuilder()
                       .setCustomId("closeTicket")
                       .setLabel("Close")
                       .setEmoji("<:9061squareleave:1015234841190600756>")
-                      .setStyle(ButtonStyle.Success)
+                      .setStyle(ButtonStyle.Success),
+                    new ButtonBuilder()
+                      .setCustomId("closereq")
+                      .setLabel("Close Request")
+                      .setEmoji("⭕")
+                      .setStyle(ButtonStyle.Danger)
                   ),
                 ],
               });
@@ -373,9 +373,47 @@ module.exports = {
           break;
 
         case "donotclose":
-          interaction.message.delete({ embeds: [closereq] });
+          await userSchema.updateMany(
+            {
+              ticketId: channel.id,
+            },
+            {
+              closed: false,
+            }
+          );
 
-          await interaction.reply({ content: "Ticket will not be closed" });
+          interaction.message.edit({
+            components: [
+              new ActionRowBuilder().setComponents(
+                new ButtonBuilder()
+                  .setCustomId("closeTicket")
+                  .setEmoji("🔐")
+                  .setLabel("Close Ticket")
+                  .setStyle(ButtonStyle.Success)
+                  .setDisabled(true),
+                new ButtonBuilder()
+                  .setCustomId("donotclose")
+                  .setEmoji("⛔")
+                  .setLabel("Do close this ticket?")
+                  .setStyle(ButtonStyle.Danger)
+                  .setDisabled(true)
+              ),
+            ],
+          });
+
+          await interaction
+            .reply({
+              embeds: [
+                new EmbedBuilder()
+                  .setTitle("Declined Close Request")
+                  .setDescription(
+                    `Ticket Close Request Has Been Declined By ${member.user.tag}`
+                  )
+                  .setColor("Random"),
+              ],
+              ephemeral: false,
+            })
+            .catch((err) => console.log(err));
           break;
 
         case "reopenTicket":
