@@ -14,50 +14,43 @@ module.exports = {
   async execute(interaction) {
     const helpembed = new EmbedBuilder()
       .setColor(0x0099ff)
-      .setTitle("PiHosting Assistance")
+      .setTitle("TITLE")
       .setDescription(
-        "Welcome to PiHosting, the best free hosting. Here's some information that will help you get started. Also take a look at our documentation using the button below if you need any help."
+        "DESCRIPTION"
       )
       .addFields(
         { name: "\u200B", value: "\u200B" },
         {
-          name: "Server IP'S",
-          value: "US1: 209.126.6.98\nDE2: 185.215.166.122",
+          name: "NAME",
+          value: "VALUE",
           inline: true,
         },
         {
-          name: "Useful Channels",
-          value: "#fivem-server-update\n#useful-downloads",
+          name: "NAME",
+          value: "VALUE",
           inline: true,
         }
       )
       .addFields({
-        name: "Support Channels",
-        value: "#text-support\n#support-ticket",
+        name: "NAME",
+        value: "VALUE",
         inline: true,
       })
       .setTimestamp()
       .setFooter({
-        text: "If you need more assistance contact support❗",
+        text: "Footer",
         iconURL: interaction.guild.iconURL(),
       });
 
     const helpcomponents = new ActionRowBuilder().setComponents(
       new ButtonBuilder()
-        .setLabel("Dashboard🖥")
-        .setURL("https://client.pihosting.cloud")
-        .setStyle(ButtonStyle.Link),
+        .setCustomId("button1")
+        .setLabel("Button 1")
+        .setemoji("❌")
+        .setStyle(ButtonStyle.Primary),
       new ButtonBuilder()
-        .setLabel("Panel💾")
-        .setURL("https://panel.pihosting.cloud")
-        .setStyle(ButtonStyle.Link),
-      new ButtonBuilder()
-        .setLabel("Website☁")
-        .setURL("https://pihosting.cloud")
-        .setStyle(ButtonStyle.Link),
-      new ButtonBuilder()
-        .setLabel("Docs📃")
-        .setURL("https://docs.pihosting.cloud")
+        .setLabel("URL")
+        .setURL("url")
         .setStyle(ButtonStyle.Link)
     );
 
