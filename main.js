@@ -4,8 +4,7 @@ const {
   Partials,
   Collection,
 } = require("discord.js");
-const { Guilds, GuildMembers, GuildMessages } =
-  GatewayIntentBits;
+const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
@@ -18,6 +17,7 @@ const { loadEvents } = require("./Handlers/eventHandler");
 client.config = require("./Main/config.json");
 client.events = new Collection();
 client.commands = new Collection();
+client.guildConfig = new Collection();
 
 const { connect } = require("mongoose");
 connect(client.config.DatabaseURL, {}).then(() =>
@@ -25,5 +25,8 @@ connect(client.config.DatabaseURL, {}).then(() =>
 );
 
 loadEvents(client);
+
+const { loadConfig } = require("./Functions/configLoader");
+loadConfig(client);
 
 client.login(client.config.token);
