@@ -17,4 +17,4 @@ Make sure to download the resources needed for this:
 
 You will need NodeJS if you are using hosting this in your pc: https://nodejs.org/dist/v18.13.0/node-v18.13.0-x64.msi
 
-npm i discord.js ascii-table glob mongoose chalk@4.1.2 discord-html-transcripts
+npm i discord.js ascii-table glob mongoose chalk@4.1.2 discord-html-transcripts ms
