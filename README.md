@@ -28,3 +28,9 @@ This discord bot has been built for PiHosting a free hosting with US and Germany
 1. Install all the DEPENDENCIES.
 2. Check if all your commands have been loaded
 3. Try the commands!
+
+## Credits
+Please Check them out, these people are great and helped a lot in creating this bot💯
+- BestRazer(Founder of PiHosting) For providing support and lending me free server in the host❤
+- [LyxCode](https://www.youtube.com/@Lyx) For his wonderful tutorials for creating this bot👍
+- [LunarTaku](https://github.com/LunarTaku/) For his  wonderful codes 😊
